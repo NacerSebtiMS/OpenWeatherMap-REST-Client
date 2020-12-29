@@ -7,7 +7,7 @@ function showCurrentWeather(zipcode, units="imperial", courtryCode="us") {
 
     $.ajax({
         type: 'GET',
-        url: 'https://api.openweathermap.org/data/2.5/weather?' + 'zip=' + zipcode + ',' + courtryCode + '&appid=3f26ae1206a31ead737823b919e97c08' + '&units=' + units,
+        url: 'https://api.openweathermap.org/data/2.5/weather?' + 'zip=' + zipcode + ',' + courtryCode + '&appid=' + '&units=' + units,
         success: function(data, status) {
             $('#cityName').html(data.name);
             $('#currentWeatherDiscription').html(data.weather[0].description);
