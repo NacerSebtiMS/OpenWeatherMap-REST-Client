@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    
+
 });
 
 
@@ -144,12 +144,12 @@ function monthConvert(m){
   return month;
 }
 
-function showCurrentWeather(zipcode, units="imperial", courtryCode="us") {
+function showCurrentWeather(zipcode, key, units="imperial", courtryCode="us") {
     $('#errorMessages').empty();
 
     $.ajax({
         type: 'GET',
-        url: 'https://api.openweathermap.org/data/2.5/weather?' + 'zip=' + zipcode + ',' + courtryCode + '&appid=' + '&units=' + units,
+        url: 'https://api.openweathermap.org/data/2.5/weather?' + 'zip=' + zipcode + ',' + courtryCode + '&appid=' +key+ '&units=' + units,
         success: function(data, status) {
             $('#cityName').html(data.name);
             $('#currentWeatherDiscription').html(data.weather[0].description);
