@@ -3,7 +3,7 @@ $(document).ready(function(){
 })
 
 function showForecast(zipcode, key, units="imperial", courtryCode="us"){
-  var FORECAST_URL = 'http://api.openweathermap.org/data/2.5/forecast?zip='+zipcode+','+courtryCode+'&appid='+key;
+  var FORECAST_URL = 'http://api.openweathermap.org/data/2.5/forecast?zip='+zipcode+','+courtryCode+'&appid='+key+ '&units=' + units;
   $.ajax({
       type: 'GET',
       url: FORECAST_URL,
@@ -15,6 +15,14 @@ function showForecast(zipcode, key, units="imperial", courtryCode="us"){
 
           var forecastInfo = "<table class='table' width='80%'>";
           forecastInfo += "<tr>";
+
+          var temperature_unit;
+          if(units === "imperial"){
+            temperature_unit = "°F";
+          }
+          if(units === "metric"){
+            temperature_unit = "°C";
+          }
 
           //Beneath the content block header should be 5 columns of data with a similar format.
           $.each(forecastArray.list, function(index,forecast){
@@ -49,11 +57,15 @@ function showForecast(zipcode, key, units="imperial", courtryCode="us"){
               forecastInfo += "<div>";
 
               forecastInfo += "<span>";
-              forecastInfo += "H "+forecast.main.temp_max;
+              forecastInfo += "H:";
+              forecastInfo += forecast.main.temp_max;
+              forecastInfo += temperature_unit;
               forecastInfo += "</span>";
 
               forecastInfo += "<span>";
-              forecastInfo += " L "+forecast.main.temp_min;
+              forecastInfo += " L:";
+              forecastInfo += forecast.main.temp_min;
+              forecastInfo += temperature_unit;
               forecastInfo += "</span>";
 
               forecastInfo += "</div>";
