@@ -5,10 +5,20 @@ $(document).ready(function () {
   var API_KEY = "";
   // ==================================================
 
-  var zipcode = 94040;
-  var units="imperial";
-  showCurrentWeather(zipcode,API_KEY,units);
-  showForecast(zipcode,API_KEY,units);
+  $('#CurrentCondition').hide();
+  $('#FiveDayForecast').hide();
+
+  $('#GetWeatherButton').on('click', function() {
+    var zipcode = $('#Zipcode').val();
+    var units= $('#Units').val();
+
+    showCurrentWeather(zipcode,API_KEY,units);
+    showForecast(zipcode,API_KEY,units);
+    $('#CurrentCondition').show();
+    $('#FiveDayForecast').show();
+  });
+
+
 });
 
 
@@ -86,9 +96,10 @@ function showForecast(zipcode, key, units="imperial", courtryCode="us"){
             }
           })
           forecastInfo += "</tr></table>";
-          forecastDiv.append(forecastInfo);
+          forecastDiv.html(forecastInfo);
       },
       error: function() {
+        $('#forecastDiv').html("");
           alert('FAILURE!');
       }
   })
