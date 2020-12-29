@@ -1,7 +1,9 @@
 $(document).ready(function(){
-  var zip = 94040;
-  var API_KEY = 'INSERT KEY';
-  var FORECAST_URL = 'http://api.openweathermap.org/data/2.5/forecast?zip='+zip+',us&appid='+API_KEY;
+
+})
+
+function showForecast(zipcode, key, units="imperial", courtryCode="us"){
+  var FORECAST_URL = 'http://api.openweathermap.org/data/2.5/forecast?zip='+zipcode+','+courtryCode+'&appid='+key;
   $.ajax({
       type: 'GET',
       url: FORECAST_URL,
@@ -67,7 +69,7 @@ $(document).ready(function(){
           alert('FAILURE!');
       }
   })
-})
+}
 
 function monthConvert(m){
   var month;
