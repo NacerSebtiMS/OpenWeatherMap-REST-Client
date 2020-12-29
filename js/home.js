@@ -8,7 +8,7 @@ function showForecast(zipcode, key, units="imperial", courtryCode="us"){
       type: 'GET',
       url: FORECAST_URL,
       success: function(forecastArray) {
-          var forecastDiv = $('body');
+          var forecastDiv = $('#forecastDiv');
           var nb_days = 0;
           var forecast_time;
           var reference_time;
