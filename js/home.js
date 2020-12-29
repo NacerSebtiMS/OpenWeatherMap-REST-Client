@@ -1,5 +1,14 @@
 $(document).ready(function () {
 
+  // INSERT YOUR API KEY HERE
+  // ==================================================
+  var API_KEY = "";
+  // ==================================================
+
+  var zipcode = 94040;
+  var units="imperial";
+  showCurrentWeather(zipcode,API_KEY,units);
+  showForecast(zipcode,API_KEY,units);
 });
 
 
