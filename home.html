@@ -10,7 +10,7 @@
   Additional CSS files here
   <link href="css/bootstrap.css" rel="stylesheet">
   <link href="css/sticky-footer.css" rel="stylesheet">
-  <link href="css/eq-height-row.css" rel="stylesheet"> --> -->
+  <link href="css/eq-height-row.css" rel="stylesheet"> -->
 
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -64,8 +64,8 @@
             </td>
             <td style="width:30%">
               <select name="units" id="Units">
-                <option value="">Imperial
-                <option value="">Metric
+                <option value="imperial">Imperial
+                <option value="metric">Metric
               </select>
             </td>
 
@@ -94,12 +94,33 @@
     <div class=" row">
       <div class="col-md-8">
         <div id="CurrentCondition">
-          <h2>Current Conditions in</h2>
-
+          <h2 id="cityName">Current Conditions in</h2>
+            <div class="container">
+              <div class="row">
+                <div class="col-sm">
+                  <div class="weatherContainer">
+                    <div class="row">
+                      <div class="col-xs-6">
+                        <img src="" alt="No content yet" id="currentWeatherImage">
+                      </div>
+                      <div class="col-xs-6">
+                        <p id="currentWeatherDiscription"></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm">
+                  <p id="currentTemperature"></p>
+                  <p id="currentHumidity"></p>
+                  <p id="currentWind"></p>
+                </div>
+              </div>
+            </div>
         </div>
       </div>
     </div>
     <hr>
+
     <div class="row">
       <div class="col-md-8">
         <div id="FiveDayForecast">
