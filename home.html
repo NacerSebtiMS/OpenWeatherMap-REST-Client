@@ -1,24 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title></title>
-    <!-- Additional CSS files here -->
-    <link href="css/bootstrap.css" rel="stylesheet">
-    <link href="css/sticky-footer.css" rel="stylesheet">
-    <link href="css/eq-height-row.css" rel="stylesheet">
+<head>
+  <!-- Required meta tags -->
+  <!-- <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title></title>
+  Additional CSS files here
+  <link href="css/bootstrap.css" rel="stylesheet">
+  <link href="css/sticky-footer.css" rel="stylesheet">
+  <link href="css/eq-height-row.css" rel="stylesheet"> --> -->
+
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>Weather Page</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+  <!-- Additional CSS files here -->
 
 
 
-  </head>
-  <body>
-    <!-- Additional page content here -->
+</head>
 
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="js/jquery-3.0.0.min.js"></script>
-    <script src="js/home.js"></script>
-  </body>
+<body>
+
+  <div class="container">
+
+    <h1 class="text-center">Weather Page</h1>
+    <hr>
+
+    <ul class="list-group" id="errorMessages"></ul>
+
+    <div class="row">
+      <table id="GetWeather" class="table">
+        <thead>
+          <tr>
+            <th width="40%"></th>
+            <th width="30%"></th>
+            <th width="30%"></th>
+
+          </tr>
+        </thead>
+        <tbody id="form">
+          <form class="form-inline" role="form" id="GetWeatherForm">
+
+            <div class="form-group">
+              <label for="Zipcode" class="col-md-4 control-label">
+                Zipcode:
+              </label>
+            </div>
+            <div class="col-md-4">
+              <input type="text" class="form-control" id="Zipcode" required>
+            </div>
+
+            <div class="form-group">
+              <label>
+                Units:
+              </label>
+              <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropDownUnitButton"
+                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Units
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropDownUnitButton">
+                  <a class="dropdown-item" href='#'>Imperial</a>
+                  <a class="dropdown-item" href='#'>Metric</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="col-md-8">
+                <input type="hidden" id="getCityID">
+                <button type="button" id="GetWeatherButton" class="btn btn-success" onclick="showCurrAndFuture()">
+                  Get Weather
+                </button>
+          </form>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+
+
+  <hr>
+  <div class="row">
+    <div class="col-md-8">
+      <div id="CurrentCondition">
+        <h2>Current Conditions in + getCityName()</h2>
+
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-md-8">
+      <div id="FiveDayForecast">
+        <h2>Five Day Forecast</h2>
+
+      </div>
+    </div>
+  </div>
+
+
+  </div>
+  <!-- Additional page content here -->
+
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="js/jquery-3.0.0.min.js"></script>
+  <script src="js/home.js"></script>
+</body>
+
 </html>
