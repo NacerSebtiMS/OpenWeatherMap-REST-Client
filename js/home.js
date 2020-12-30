@@ -7,6 +7,7 @@ $(document).ready(function () {
 
     $('#CurrentCondition').hide();
     $('#FiveDayForecast').hide();
+    $('#dropdownMenuButton').text("imperial");
 
     $('#GetWeatherButton').on('click', function() {
         var zipcode = $('#Zipcode').val();
