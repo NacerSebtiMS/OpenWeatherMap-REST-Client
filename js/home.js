@@ -2,7 +2,7 @@ $(document).ready(function () {
 
     // INSERT YOUR API KEY HERE
     // ==================================================
-    var API_KEY = "4ac0fa0cd50319dc556c16de25118fc6";
+    var API_KEY = "";
     // ==================================================
 
     $('#CurrentCondition').hide();
