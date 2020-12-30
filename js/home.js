@@ -23,6 +23,8 @@ $(document).ready(function () {
     });
 
 
+
+
 });
 
 
@@ -38,7 +40,7 @@ function showForecast(zipcode, key, units="imperial", courtryCode="us"){
             var forecast_time;
             var reference_time;
 
-            var forecastInfo = "<table class='table' width='80%'>";
+            var forecastInfo = "<table class='table' width='100%'>";
             forecastInfo += "<tr>";
 
             var temperature_unit;
@@ -66,26 +68,28 @@ function showForecast(zipcode, key, units="imperial", courtryCode="us"){
 
                     forecastInfo += '<td width="20%">';
                     //Each column should have a top line consisting of a date formatted like "3 August".
-                    forecastInfo += "<div>";
+                    forecastInfo += "<div class='text-center'>";
                     forecastInfo += day + " " + month;
                     forecastInfo += "</div>";
                     //Beneath the date, an icon for the weather type and description should appear.
                     var icon_url = "http://openweathermap.org/img/w/" + forecast.weather[0].icon + ".png";
 
                     forecastInfo += "<div>";
-                    forecastInfo += "<img src='" + icon_url + "' + class='rounded float-left'>";
+                    forecastInfo += "<img src='" + icon_url + "' + class='rounded float-left py-1'>";
+                    forecastInfo += "<p class='align-middle py-3'>";
                     forecastInfo +=  forecast.weather[0].description;
+                    forecastInfo += "</p>";
                     forecastInfo += "</div>";
 
-
                     //Beneath the icon, the high and low temperatures should be listed with the proper units (C or F).
-                    forecastInfo += "<div>";
+                    forecastInfo += "<div width='100%' class='text-center'>";
 
                     forecastInfo += "<span>";
                     forecastInfo += "H:";
                     forecastInfo += forecast.main.temp_max;
                     forecastInfo += temperature_unit;
                     forecastInfo += "</span>";
+
 
                     forecastInfo += "<span>";
                     forecastInfo += " L:";
@@ -107,6 +111,7 @@ function showForecast(zipcode, key, units="imperial", courtryCode="us"){
             alert('FAILURE!');
         }
     })
+
 }
 
 function monthConvert(m){
@@ -168,7 +173,9 @@ function monthConvert(m){
     return month;
 }
 
-function showCurrentWeather(zipcode, apikey, units="metric", courtryCode="us") {
+
+function showCurrentWeather(zipcode, apikey, units="imperial", courtryCode="us") {
+
     $('#errorMessages').empty();
     var TempUnit, HumidUnit, WindUnit;
     if(units === "imperial"){
@@ -185,7 +192,9 @@ function showCurrentWeather(zipcode, apikey, units="metric", courtryCode="us") {
 
     $.ajax({
         type: 'GET',
+
         url: 'https://api.openweathermap.org/data/2.5/weather?' + 'zip=' + zipcode + ',' + courtryCode + '&appid=' + apikey + '&units=' + units,
+
         success: function(data, status) {
             $('#cityName').html("Current Conditions in " + data.name);
             $('#currentWeatherDiscription').html(data.weather[0].description);
