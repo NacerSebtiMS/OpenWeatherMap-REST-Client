@@ -35,58 +35,38 @@
     <h1 class="text-center">Weather Page</h1>
 
     <ul class="list-group" id="errorMessages"></ul>
-
-    <div class="row center-row">
+      <div class="py-2"></div>
       <table id="formTable" class="table">
         <form class="form-inline" role="form" id="GetWeatherForm">
           <tr>
-            <td style="width:10%">
-              <div class="form-group">
-                <label for="Zipcode" class="offset-md-3 col-md-4 control-label">
-                  Zipcode:
-                </label>
-              </div>
+            <td style="width:30%">
+                  <p class="align-middle text-right font-weight-bold py-1">Zipcode:</p>
             </td>
-            <td style="width:40%">
-              <div class="col-md-8">
-                <input type="text" class="form-control" id="Zipcode" placeholder="Enter Zipcode" required>
-              </div>
-
+            <td style="width:20%">
+                <input type="text" class="form-control align-middle text-left" id="Zipcode" placeholder="Enter Zipcode" required>
             </td>
 
             <td style="width:5%">
-              <div class="form-group">
-                <div class=" col-md-6">
-                  <label for="Units" class="col-md-4">
-                    Units:
-                  </label>
-                </div>
-              </div>
+                    <p class="align-middle text-right font-weight-bold py-1">Units:</p>
             </td>
 
-            <td style="width:30%">
-              <select name="units" id="Units">
+            <td style="width:10%">
+              <select name="units" id="Units" class="align-middle text-left py-1">
                 <option value="imperial">Imperial
                 <option value="metric">Metric
               </select>
             </td>
 
             <td style="width:30%">
-              <div class="form-group">
-                <div class="col-md-6">
-                  <input type="hidden" id="getCityID">
-                  <button type="button" id="GetWeatherButton" class="btn btn-success"
-                    style="border: none; text-align: center; display: inline-block; background-color: #e7e7e7; color: black;">
-                    Get Weather
-                  </button>
-                </div>
-              </div>
+              <button type="button" id="GetWeatherButton" class="btn btn-success align-middle text-left"
+                style="border: none; text-align: center; display: inline-block; background-color: #e7e7e7; color: black;">
+                Get Weather
+              </button>
             </td>
           </tr>
         </form>
       </table>
-    </div>
-
+      <hr>
 
 
 
@@ -119,18 +99,12 @@
         </div>
       </div>
     </div>
-    <hr>
 
-
-    <div class="row">
-      <div class="col-md-8">
         <div id="FiveDayForecast">
-          <hr>
           <h2>Five Day Forecast</h2>
-          <div id="forecastDiv"></div>
         </div>
-      </div>
-    </div>
+          <div id="forecastDiv"></div>
+
 
 
   </div>

@@ -2,7 +2,7 @@ $(document).ready(function () {
 
     // INSERT YOUR API KEY HERE
     // ==================================================
-    var API_KEY = "";
+    var API_KEY = "4ac0fa0cd50319dc556c16de25118fc6";
     // ==================================================
 
     $('#CurrentCondition').hide();
@@ -36,7 +36,7 @@ function showForecast(zipcode, key, units="imperial", courtryCode="us"){
             var forecast_time;
             var reference_time;
 
-            var forecastInfo = "<table class='table' width='80%'>";
+            var forecastInfo = "<table class='table' width='100%'>";
             forecastInfo += "<tr>";
 
             var temperature_unit;
@@ -64,20 +64,21 @@ function showForecast(zipcode, key, units="imperial", courtryCode="us"){
 
                     forecastInfo += '<td width="20%">';
                     //Each column should have a top line consisting of a date formatted like "3 August".
-                    forecastInfo += "<div>";
+                    forecastInfo += "<div class='text-center'>";
                     forecastInfo += day + " " + month;
                     forecastInfo += "</div>";
                     //Beneath the date, an icon for the weather type and description should appear.
                     var icon_url = "http://openweathermap.org/img/w/" + forecast.weather[0].icon + ".png";
 
                     forecastInfo += "<div>";
-                    forecastInfo += "<img src='" + icon_url + "' + class='rounded float-left'>";
+                    forecastInfo += "<img src='" + icon_url + "' + class='rounded float-left py-1'>";
+                    forecastInfo += "<p class='align-middle py-3'>";
                     forecastInfo +=  forecast.weather[0].description;
+                    forecastInfo += "</p>";
                     forecastInfo += "</div>";
 
-
                     //Beneath the icon, the high and low temperatures should be listed with the proper units (C or F).
-                    forecastInfo += "<div>";
+                    forecastInfo += "<div width='100%' class='text-center'>";
 
                     forecastInfo += "<span>";
                     forecastInfo += "H:";
