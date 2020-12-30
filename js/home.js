@@ -10,12 +10,16 @@ $(document).ready(function () {
 
     $('#GetWeatherButton').on('click', function() {
         var zipcode = $('#Zipcode').val();
-        var units= $('#Units').val();
+        var units= $('#dropdownMenuButton').text();
 
         showCurrentWeather(zipcode,API_KEY,units);
         showForecast(zipcode,API_KEY,units);
         $('#CurrentCondition').show();
         $('#FiveDayForecast').show();
+    });
+
+    $('.dropdown-menu a').click(function(){
+        $('#dropdownMenuButton').text($(this).text());
     });
 
 
@@ -180,7 +184,7 @@ function showCurrentWeather(zipcode, apikey, units="imperial", courtryCode="us")
         WindUnit = " miles/hour";
     }
     else{
-        TempUnit = " C";
+        TempUnit = " °C";
         HumidUnit = " %";
         WindUnit = " kilometers/hour";
     }
@@ -194,9 +198,9 @@ function showCurrentWeather(zipcode, apikey, units="imperial", courtryCode="us")
         success: function(data, status) {
             $('#cityName').html("Current Conditions in " + data.name);
             $('#currentWeatherDiscription').html(data.weather[0].description);
-            $('#currentTemperature').html(data.main.temp + TempUnit);
-            $('#currentHumidity').html(data.main.humidity + HumidUnit);
-            $('#currentWind').html(data.wind.speed + WindUnit);
+            $('#currentTemperature').html("Temperature: " + data.main.temp + TempUnit);
+            $('#currentHumidity').html("Humidity: " + data.main.humidity + HumidUnit);
+            $('#currentWind').html("Wind: " + data.wind.speed + WindUnit);
             $('#currentWeatherImage').attr("src", "http://openweathermap.org/img/w/" + data.weather[0].icon + ".png");
         },
         error: function() {
