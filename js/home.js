@@ -19,6 +19,8 @@ $(document).ready(function () {
     });
 
 
+
+
 });
 
 
@@ -83,6 +85,7 @@ function showForecast(zipcode, key, units="imperial", courtryCode="us"){
                     forecastInfo += temperature_unit;
                     forecastInfo += "</span>";
 
+
                     forecastInfo += "<span>";
                     forecastInfo += " L:";
                     forecastInfo += forecast.main.temp_min;
@@ -103,6 +106,7 @@ function showForecast(zipcode, key, units="imperial", courtryCode="us"){
             alert('FAILURE!');
         }
     })
+
 }
 
 function monthConvert(m){
@@ -164,7 +168,9 @@ function monthConvert(m){
     return month;
 }
 
-function showCurrentWeather(zipcode, apikey, units="metric", courtryCode="us") {
+
+function showCurrentWeather(zipcode, apikey, units="imperial", courtryCode="us") {
+
     $('#errorMessages').empty();
     var TempUnit, HumidUnit, WindUnit;
     if(units === "imperial"){
@@ -181,7 +187,9 @@ function showCurrentWeather(zipcode, apikey, units="metric", courtryCode="us") {
 
     $.ajax({
         type: 'GET',
+
         url: 'https://api.openweathermap.org/data/2.5/weather?' + 'zip=' + zipcode + ',' + courtryCode + '&appid=' + apikey + '&units=' + units,
+
         success: function(data, status) {
             $('#cityName').html("Current Conditions in " + data.name);
             $('#currentWeatherDiscription').html(data.weather[0].description);
